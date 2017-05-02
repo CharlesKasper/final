@@ -8,9 +8,15 @@ function PasswordMessage(m){
 
 function inRange(char,min,max){
     let unicode = char.charCodeAt(0);
-    let char=
-    let min=
-    let max=
+    if (unicode >=min){
+        if (unicode<=max) {
+            return true;
+        }
+
+    }
+    else {
+        return false;
+    }
 }
 
 exports.checkLength = function(str){
