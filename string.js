@@ -1,22 +1,17 @@
 var exports = module.exports = {};
 
 function PasswordMessage(m){
-  let this.name="Password Message";
-  let this.message=m;
-
+    let this.name = "Password Message";
+    let this.message = m;
 }
-
 function inRange(char,min,max){
     let unicode = char.charCodeAt(0);
-    if (unicode >=min){
-        if (unicode<=max) {
+        if(unicode <= max && unicode >= min){
             return true;
         }
-
-    }
-    else {
-        return false;
-    }
+        else{
+            return false;
+        }
 }
 
 exports.checkLength = function(str){
@@ -40,20 +35,78 @@ exports.checkLength = function(str){
 
 
 exports.containsUpper =function(str){
-
+    let hasUpper = false;
+    try{
+        for(let i = 0; i < str.length; i++){
+            if(str[i] >= 65 && str[i] <= 90){
+                hasUpper = true;
+                throw new PasswordMessage("Has an uppercase character")
+            }
+            else{
+                throw new PasswordMessage("Does not have an uppercase character")
+            }
+        }
+    }
+    catch (e){
+        console.log(e.name+""+e.message);
+        return hasUpper;
+}
 }
 
-
 exports.containsLower =function(str){
+    let hasLower = false;
+    try{
+        for(let i = 0; i <str.length; i++){
+            if(str[i] >= 97 && str[i] <= 122){
 
+                throw new PasswordMessage("Has a lowercase character");
+                 hasLower = true;
+            }
+            else{
+                throw new PasswordMessage("Does not have a lowercase character");
+            }
+        }
+    }
+    catch (e){
+        console.log(e.name+""e.message);
+        return hasLower;
+    }
 }
 
 
 exports.containsNumerical =function(str){
-
+let hasNumerical = false;
+try{
+    for( let i = 0; i <str.length; i++){
+        if(str[i] >= 48 && str[i] <= 57){
+             hasNumerical = true;
+            throw new PasswordMessage("Has a numerical character");
+        }
+        else{
+            throw new PasswordMessage("Does not have a numerical character");
+        }
+    }
+}
+catch (e){
+    console.log(e.name+""e.message);
+    return hasLower;
+}
 }
 
 
 exports.containsSpecial =function(str){
+let hasSpecial= false;
+let specialArray= [33,64,35,36,37,94,38,42]
+try{
+    for(let i = 0; i <str.length; i++){
+        if(str[i] = specialArray[i]){
+             hasSpecial = true;
+            throw new PasswordMessage("Has a special character");
+        }
 
+        }
+            throw new PasswordMessage("Does not have a special character");
+        return hasSpecial
+    }
+}
 }

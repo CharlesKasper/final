@@ -12,6 +12,9 @@ function getString(){
         let passesAllChecks = true;
 
         //Conditional Statements here.
+if  testString.checkLength()== false || testString.containsUpper== false || testString.containsLower== false|| testString.containsSpecial()== false|| testString.containsNumerical== false{
+    return passesAllChecks = false;
+}
 
 
         if(!passesAllChecks){
